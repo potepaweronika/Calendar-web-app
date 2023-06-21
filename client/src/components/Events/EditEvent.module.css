@@ -1,0 +1,78 @@
+.edit_event {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2em;
+}
+
+.edit_event h2 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.edit_event .form_group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5em;
+}
+
+.edit_event label {
+  margin-bottom: 0.5em;
+  font-weight: bold;
+}
+
+.edit_event input[type='text'],
+.edit_event input[type='datetime-local'],
+.edit_event textarea {
+  padding: 0.5em;
+  font-size: 14px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  width: 100%;
+}
+
+.edit_event input[type='color'] {
+  padding: 0;
+  height: 32px;
+  border: none;
+}
+
+.edit_event .error_message {
+  color: red;
+  font-size: 14px;
+}
+
+.edit_event .button_group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.edit_event .edit_event_button,
+.edit_event .cancel_button,
+.edit_event .delete_button  {
+  border: none;
+  outline: none;
+  padding: 12px 24px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.edit_event .edit_event_button {
+  background-color: #3bb19b;
+  color: white;
+  border-radius: 20px;
+}
+
+.edit_event .cancel_button {
+  background-color: #9e3232;
+  color: #333333;
+  border-radius: 20px;
+}
+
+.edit_event .delete_button {
+  background-color: #e74c3c;
+  color: white;
+  border-radius: 20px;
+}
