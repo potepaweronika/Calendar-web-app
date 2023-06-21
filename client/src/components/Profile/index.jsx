@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import styles from "./Profile.module.css";
 
 const Profile = () => {
@@ -176,7 +176,9 @@ const Profile = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
             <button type="submit">Update Profile</button>
-            <button type="button" onClick={handleDeleteProfile}>Delete Profile</button>
+            <button type="button" onClick={handleDeleteProfile}>
+              Delete Profile
+            </button>
           </form>
         </div>
         <ToastContainer />

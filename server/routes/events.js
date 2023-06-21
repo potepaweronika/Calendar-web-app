@@ -45,7 +45,6 @@ router.get("/", tokenVerification, async (req, res) => {
   }
 });
 
-
 // Get one event for the current user
 router.get("/:eventId", tokenVerification, async (req, res) => {
   try {
@@ -63,7 +62,6 @@ router.get("/:eventId", tokenVerification, async (req, res) => {
     res.status(500).json({ error: "Internal server error" });
   }
 });
-
 
 // Update an existing event
 router.put("/:eventId", tokenVerification, async (req, res) => {

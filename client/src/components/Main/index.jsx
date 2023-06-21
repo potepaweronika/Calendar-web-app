@@ -20,10 +20,7 @@ const Main = () => {
         <nav className={styles.navbar}>
           <h1>Calendar</h1>
           <div className={styles.button}>
-            <button
-              className={styles.white_btn}
-              onClick={handleShowProfile}
-            >
+            <button className={styles.white_btn} onClick={handleShowProfile}>
               Profile Info
             </button>
             <button className={styles.white_btn} onClick={handleLogout}>

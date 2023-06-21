@@ -21,8 +21,8 @@
   font-weight: bold;
 }
 
-.edit_event input[type='text'],
-.edit_event input[type='datetime-local'],
+.edit_event input[type="text"],
+.edit_event input[type="datetime-local"],
 .edit_event textarea {
   padding: 0.5em;
   font-size: 14px;
@@ -31,7 +31,7 @@
   width: 100%;
 }
 
-.edit_event input[type='color'] {
+.edit_event input[type="color"] {
   padding: 0;
   height: 32px;
   border: none;
@@ -50,7 +50,7 @@
 
 .edit_event .edit_event_button,
 .edit_event .cancel_button,
-.edit_event .delete_button  {
+.edit_event .delete_button {
   border: none;
   outline: none;
   padding: 12px 24px;

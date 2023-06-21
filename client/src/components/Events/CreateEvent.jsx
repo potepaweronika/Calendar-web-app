@@ -1,25 +1,25 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-import styles from './CreateEvent.module.css';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import React, { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import styles from "./CreateEvent.module.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const CreateEvent = () => {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
-    title: '',
-    startDate: '',
-    endDate: '',
-    color: '',
-    description: '',
+    title: "",
+    startDate: "",
+    endDate: "",
+    color: "",
+    description: "",
   });
 
   const [formErrors, setFormErrors] = useState({
-    titleError: '',
-    startDateError: '',
-    endDateError: '',
+    titleError: "",
+    startDateError: "",
+    endDateError: "",
   });
 
   const handleChange = (event) => {
@@ -33,47 +33,47 @@ const CreateEvent = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     // Validate form fields
     let hasError = false;
     const errors = {
-      titleError: '',
-      startDateError: '',
-      endDateError: '',
+      titleError: "",
+      startDateError: "",
+      endDateError: "",
     };
-  
+
     if (!formData.title.trim()) {
       hasError = true;
-      errors.titleError = 'Title is required';
+      errors.titleError = "Title is required";
     }
-  
+
     if (!formData.startDate.trim()) {
       hasError = true;
-      errors.startDateError = 'Start date is required';
+      errors.startDateError = "Start date is required";
     }
-  
+
     if (!formData.endDate.trim()) {
       hasError = true;
-      errors.endDateError = 'End date is required';
+      errors.endDateError = "End date is required";
     } else if (new Date(formData.endDate) < new Date(formData.startDate)) {
       hasError = true;
-      errors.endDateError = 'End date cannot be earlier than the start date';
+      errors.endDateError = "End date cannot be earlier than the start date";
     }
-  
+
     if (hasError) {
       setFormErrors(errors);
       return;
     }
-  
+
     // If form is valid, proceed with event creation
     try {
-      const token = localStorage.getItem('token');
+      const token = localStorage.getItem("token");
       const config = {
-        method: 'post',
-        url: 'http://localhost:8080/api/events/',
+        method: "post",
+        url: "http://localhost:8080/api/events/",
         headers: {
-          'Content-Type': 'application/json',
-          'x-access-token': token,
+          "Content-Type": "application/json",
+          "x-access-token": token,
         },
         data: {
           title: formData.title,
@@ -84,19 +84,18 @@ const CreateEvent = () => {
         },
       };
       await axios(config);
-  
+
       // Redirect to calendar view after successful event creation
-      toast.success("Event created successfully")
-      navigate('/');
+      toast.success("Event created successfully");
+      navigate("/");
     } catch (error) {
       console.error(error);
       // Handle error
     }
   };
-  
 
   const handleCancel = () => {
-    navigate('/');
+    navigate("/");
   };
 
   return (
@@ -113,7 +112,9 @@ const CreateEvent = () => {
             onChange={handleChange}
           />
           {formErrors.titleError && (
-            <span className={styles.error_message}>{formErrors.titleError}</span>
+            <span className={styles.error_message}>
+              {formErrors.titleError}
+            </span>
           )}
         </div>
         <div className={styles.form_group}>
@@ -126,7 +127,9 @@ const CreateEvent = () => {
             onChange={handleChange}
           />
           {formErrors.startDateError && (
-            <span className={styles.error_message}>{formErrors.startDateError}</span>
+            <span className={styles.error_message}>
+              {formErrors.startDateError}
+            </span>
           )}
         </div>
         <div className={styles.form_group}>
@@ -139,7 +142,9 @@ const CreateEvent = () => {
             onChange={handleChange}
           />
           {formErrors.endDateError && (
-            <span className={styles.error_message}>{formErrors.endDateError}</span>
+            <span className={styles.error_message}>
+              {formErrors.endDateError}
+            </span>
           )}
         </div>
         <div className={styles.form_group}>
@@ -165,12 +170,16 @@ const CreateEvent = () => {
           <button className={styles.create_event_button} type="submit">
             Create Event
           </button>
-          <button className={styles.cancel_button} type="button" onClick={handleCancel}>
+          <button
+            className={styles.cancel_button}
+            type="button"
+            onClick={handleCancel}
+          >
             Cancel
           </button>
         </div>
       </form>
-        <ToastContainer />
+      <ToastContainer />
     </div>
   );
 };

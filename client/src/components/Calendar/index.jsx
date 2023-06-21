@@ -93,7 +93,7 @@ const Calendar = () => {
   const saveEvent = async (event) => {
     const token = localStorage.getItem("token");
     // Remove circular references
-    const eventId = event.event.extendedProps._id
+    const eventId = event.event.extendedProps._id;
     const eventData = {
       title: event.event.title,
       description: event.event.extendedProps.description,
@@ -101,19 +101,19 @@ const Calendar = () => {
       end: event.event._instance.range.end,
       color: event.event.backgroundColor,
     };
-    
+
     try {
       const response = await axios.put(
         `http://localhost:8080/api/events/${eventId}`,
         eventData,
         {
           headers: {
-            'Content-Type': 'application/json',
-            'x-access-token': token,
+            "Content-Type": "application/json",
+            "x-access-token": token,
           },
         }
       );
-      
+
       console.log("Event saved:", response.data);
     } catch (error) {
       console.error("Error saving event:", error);

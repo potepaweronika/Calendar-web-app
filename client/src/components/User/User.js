@@ -3,7 +3,7 @@ const User = (props) => {
   return (
     <li>
       {" "}
-      {user.firstName} {user.lastName} {" "}
+      {user.firstName} {user.lastName}{" "}
     </li>
   );
 };

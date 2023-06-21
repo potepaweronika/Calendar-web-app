@@ -41,7 +41,7 @@ router.get("/profile", tokenVerification, async (req, res) => {
     .exec()
     .then(async () => {
       const id = req.user._id;
-      const profile = await User.findOne({_id: id});
+      const profile = await User.findOne({ _id: id });
       res.status(200).send({ data: profile, message: "Użytkownik" });
     })
     .catch((error) => {
@@ -84,7 +84,7 @@ router.delete("/", tokenVerification, async (req, res) => {
     .exec()
     .then(async () => {
       const id = req.user._id;
-      await User.deleteOne({_id: id})
+      await User.deleteOne({ _id: id });
       res.status(200).send({ message: "Użytkownik usunięty" });
     })
     .catch((error) => {
